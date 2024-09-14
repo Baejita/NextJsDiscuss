@@ -1,4 +1,4 @@
-import CommentShow from "@/components/comments/comment-show";
+import CommentShow from "@/app/components/comments/comment-show";
 
 interface CommentListProps {}
 
