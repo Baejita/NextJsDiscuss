@@ -41,7 +41,7 @@ function TopicCreateForm() {
               isInvalid={!!formState.errors.description}
               errorMessage={formState.errors.description?.join(', ')}
             />
-
+            {formState.errors._form ? <div className="rounded p-2 bg-red-200 border border-red-500 text-red-700">{formState.errors._form?.join(', ')}</div> : null}
             <Button type="submit">Submit</Button>
           </div>
         </form>
