@@ -1,7 +1,7 @@
 'use client'
 
 import * as actions from "@/app/actions";
-import FormButton from "@/app/common/form-button";
+
 import {
   Input,
   Button,
@@ -11,6 +11,7 @@ import {
   PopoverContent,
 } from "@nextui-org/react";
 import { useFormState } from "react-dom";
+import FormButton from "../common/form-button";
 
 function TopicCreateForm() {
   const [formState, action] = useFormState(actions.createTopic, {
