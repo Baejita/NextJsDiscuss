@@ -1,8 +1,8 @@
 import Link from "next/link";
-import PostShow from "@/components/posts/post-show";
-import CommentList from "@/components/comments/comment-list";
-import CommentCreateForm from "@/components/comments/comment-create-form";
-import paths from "@/paths";
+import PostShow from "@/app/components/posts/post-show";
+import CommentList from "@/app/components/comments/comment-list";
+import CommentCreateForm from "@/app/components/comments/comment-create-form";
+import paths from "@/app/paths";
 
 interface PostShowPageProps {
   params: {
