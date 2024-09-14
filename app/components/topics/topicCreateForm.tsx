@@ -1,6 +1,7 @@
 'use client'
 
 import * as actions from "@/app/actions";
+import FormButton from "@/app/common/form-button";
 import {
   Input,
   Button,
@@ -42,7 +43,7 @@ function TopicCreateForm() {
               errorMessage={formState.errors.description?.join(', ')}
             />
             {formState.errors._form ? <div className="rounded p-2 bg-red-200 border border-red-500 text-red-700">{formState.errors._form?.join(', ')}</div> : null}
-            <Button type="submit">Submit</Button>
+            <FormButton >Save</FormButton>
           </div>
         </form>
       </PopoverContent>

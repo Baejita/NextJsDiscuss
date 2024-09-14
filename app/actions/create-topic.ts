@@ -7,6 +7,7 @@ import { db } from '../db';
 import path from '../paths';
 import paths from '../paths';
 import { revalidatePath } from 'next/cache';
+import { resolve } from 'path';
 
 
 const  createTopicSchema = z.object({
@@ -22,7 +23,9 @@ interface CreateTopicFormState {
     }
 
 }
-export async function createTopic(formState: CreateTopicFormState,formData: FormData):Promise<CreateTopicFormState> {
+export async function createTopic(formState: CreateTopicFormState, formData: FormData): Promise<CreateTopicFormState> {
+    await new Promise(resolve => setTimeout(resolve, 2300))
+
    const result = createTopicSchema.safeParse({
         name: formData.get('name'),
         description: formData.get('description')
@@ -35,12 +38,12 @@ export async function createTopic(formState: CreateTopicFormState,formData: Form
     if (!session || !session.user) {
         return {
             errors: {
-                _form: ['You must be signed in do this.']
+                 _form: ['You must be signed in do this.']
             }
         }
     }
     let topic: Topic;
-try {
+    try {
     topic = await db.topic.create({
         data: {
             slug: result.data.name,
@@ -64,12 +67,11 @@ try {
         }
     }
     }
+    revalidatePath('/')
     redirect(paths.topicShow(topic.slug))
 
-    return {
-        errors: {        }
-    }
-    revalidatePath('/')
+   
+   
     //todo : revalidate to the homepage
 
 }
