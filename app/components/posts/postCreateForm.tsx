@@ -13,11 +13,17 @@ import {
 } from "@nextui-org/react";
 import FormButton from "../common/form-button";
 
-function PostCreateForm() {
-  const [formState, action] = useFormState(actions.createPost, {
-        errors: {}
-      })
+interface PostCreateFormProps {
+  slug: string;
+}
 
+function PostCreateForm({slug}: PostCreateFormProps) {
+  const [formState, action] = useFormState(actions.createPost.bind(null, slug), {
+        errors: {}
+  })
+  
+
+    
   return (
     <Popover placement='left' >
       <PopoverTrigger>
@@ -39,7 +45,11 @@ function PostCreateForm() {
               formState.errors.content?.join(', ')
             }
               name='content' label='content' labelPlacement='outside' placeholder='Content' />
-            
+            {
+              formState.errors._form ? <div className="rounded p-2 bg-red-200 border border-red-300 text-red-700">
+                {formState.errors._form.join(', ')}
+              </div> : null
+            }
             <FormButton >Create Post</FormButton>
 
           </div>
