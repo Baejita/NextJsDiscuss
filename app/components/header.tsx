@@ -5,10 +5,10 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Input,
+
 } from "@nextui-org/react";
 import HeaderAuth from "./header-auth";
-
+import SearchInput from "./serch-input";
 function Header() {
   return (
     <Navbar className=" shadow mb-6>">
@@ -19,7 +19,7 @@ function Header() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input />
+          <SearchInput />
         </NavbarItem>
       </NavbarContent>
 
