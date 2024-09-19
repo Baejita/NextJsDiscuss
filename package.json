@@ -2,15 +2,15 @@
   "name": "discuss",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+    "scripts": {
     "dev": "dotenv -e .env.local -- next dev",
     "build": "prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint",
-    "start:db": "docker run --rm -p 5432:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres",
     "prisma:migrate:local": "dotenv -e .env.local -- npx prisma migrate dev --schema=prisma/schema.prisma",
     "prisma:generate:local": "dotenv -e .env.local -- npx prisma generate --schema=prisma/schema.prisma",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "start:db": "docker run --rm -p 5432:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres"
   },
   "dependencies": {
     "@auth/core": "0.18.1",
