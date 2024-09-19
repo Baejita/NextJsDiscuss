@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { auth } from "@/auth";
-import { db } from "@/db";
-import paths from "@/paths";
+import { auth } from "@/app/auth";
+import { db } from "@/app/db";
+import paths from "@/app/paths";
 
 const createCommentSchema = z.object({
   content: z.string().min(3),
